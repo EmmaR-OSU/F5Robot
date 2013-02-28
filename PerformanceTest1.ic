@@ -1,20 +1,41 @@
 int main()
 {   //Declare integers
-    int startbutton, cds_value,motor_speed, stopbutton, microswitch;
+    int startbutton, cds_value,motor_speed, stopbutton, microswitch, startcheck;
+
     //Initialize variables for each function
     startbutton = start_button();
     cds_value = analog(6);
     stopbutton = stop_button();
     microswitch = digital(7);
+
+    //Runs program continuously
     for(;;)
       {
+        printf("Press to start\n");
+        startbutton = start_button();
         while(startbutton == 1)
           {
-            while()
+            cds_value = analog(6);
+            while(cds_value>10)  
+              {
+                //Pause brah
+                printf("%d\n",cds_value);
+                cds_value = analog(6);
+                sleep(0.1);
               }
-              
-              }
-              
-              
-              }
-              
+              while(startbutton == 1)
+                {
+              while(stopbutton == 0)
+              {
+                cds_value = analog(6);
+                stopbutton = stop_button();
+                printf("%d\n",cds_value);
+                sleep(0.1);
+            }
+            startbutton = 0;
+            printf("STOPPED");
+
+            }
+        }
+    }
+}//End int main()
