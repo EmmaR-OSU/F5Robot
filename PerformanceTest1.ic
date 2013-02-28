@@ -18,13 +18,13 @@ int main()
           {
             while(cds_value>=startlight)
               {
-              motor(0,0);
-              }
+                motor(0,0);
+            }
             
-
+            
             while(front_bump==0)
               {
-            motor(0,100);                
+                motor(0,100);                
             }
             
             time1=seconds();
@@ -35,11 +35,11 @@ int main()
             motor(0,0);
             
             //turn robot
-
             
             
-              
-              }
-              
+            
+            
+        }
+        
     }
 }
