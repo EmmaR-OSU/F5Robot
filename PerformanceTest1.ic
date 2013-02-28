@@ -4,17 +4,42 @@ int main()
     //Initialize variables for each function
     startbutton = start_button();
     cds_value = analog(6);
+    front_bump = analog(5);
     stopbutton = stop_button();
     microswitch = digital(7);
+    //initialize variables used within code
+    int startlight=10;
+    float time1;
+    float time2=5;
+    
     for(;;)
       {
         while(startbutton == 1)
           {
-            while()
+            while(cds_value>=startlight)
+              {
+              motor(0,0);
+              }
+            
+
+            while(front_bump==0)
+              {
+            motor(0,100);                
+            }
+            
+            time1=seconds();
+            while(seconds()-time1>time2) 
+              {
+                motor(0,-100);
+            }
+            motor(0,0);
+            
+            //turn robot
+
+            
+            
+              
               }
               
-              }
-              
-              
-              }
-              
+    }
+}
