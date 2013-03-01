@@ -4,35 +4,38 @@ int main()
     //Initialize variables for each function
     startbutton = start_button();
     cds_value = analog(6);
-    front_bump = analog(5);
+    front_bump = digital(8);
     stopbutton = stop_button();
     microswitch = digital(7);
     //initialize variables used within code
     int startlight=10;
-    float time1;
-    float time2=5;
+    float time1; //Stores time when robot beings moving
+    float time2=5; //Amount of time robot will need to travel forward given distance (based on speed of robot)
     
     for(;;)
       {
+        printf("Press to start\n");
         while(startbutton == 1)
           {
             while(cds_value>=startlight)
               {
-                motor(0,0);
-            }
-            
-            
+                //motor(0,0);
+                printf("Speed: 0");
+                }                     
             while(front_bump==0)
               {
-                motor(0,100);                
-            }
+                //motor(0,100);
+                printf("Speed: 100");
+                }
             
             time1=seconds();
             while(seconds()-time1>time2) 
               {
-                motor(0,-100);
-            }
-            motor(0,0);
+                //motor(0,-100);
+                printf("Speed:-100");
+                }
+            //motor(0,0);
+            printf("Speed: 0");
             
             //turn robot
             
